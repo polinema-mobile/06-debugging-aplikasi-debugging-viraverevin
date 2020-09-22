@@ -29,7 +29,37 @@ public class MainActivity extends AppCompatActivity {
 
         //TODO 02 Buatlah kode program untuk menambahkan event klik dari tombol kali dan tombol bagi
 
+        button_kali.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getAngkaMasukan();
+                int div = angka_pertama * angka_kedua;
+                text_hasil.setText(String.valueOf(div));
+            }
+        });
+
+        button_bagi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getAngkaMasukan();
+                int div = angka_pertama / angka_kedua;
+                text_hasil.setText(String.valueOf(div));
+            }
+        });
+
         //TODO 03 Gunakanlah Log Cat Untuk memperbaiki kesalahan program
+        button_bagi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getAngkaMasukan();
+                if (angka_kedua == 0){
+                    text_hasil.setText("Infinity");
+                }else{
+                    int div = angka_pertama / angka_kedua;
+                    text_hasil.setText(String.valueOf(div));
+                }
+            }
+        });
 
         //TODO 04 Gunakanlah Debugger untuk mencari kesalahan program (program berjalan dengan baik namun hasilnya salah)
 
@@ -47,13 +77,16 @@ public class MainActivity extends AppCompatActivity {
         button_tambah.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int sum = angka_pertama + angka_kedua;
                 getAngkaMasukan();
-                text_hasil.setText(angka_pertama+angka_kedua);
+                text_hasil.setText(String.valueOf(sum));
             }
         });
     }
 
     public void getAngkaMasukan(){
         //TODO 01 Buatlah kode program untuk mengambil nilai input dari edit text
+        angka_pertama = Integer.parseInt(edit_text_angka_pertama.getText().toString());
+        angka_kedua = Integer.parseInt(edit_text_angka_kedua.getText().toString());
     }
 }
