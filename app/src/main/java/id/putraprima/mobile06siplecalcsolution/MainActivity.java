@@ -90,6 +90,14 @@ public class MainActivity extends AppCompatActivity {
         angka_pertama = Integer.parseInt(edit_text_angka_pertama.getText().toString());
         angka_kedua = Integer.parseInt(edit_text_angka_kedua.getText().toString());
 
-
+    }
+    public int operation(String operator, int num1, int num2){
+        switch(operator){
+            case "add" : return num1+num2;
+            case "substract" : return num1-num2;
+            case "multiply" : return num1*num2;
+            case "division" : return num1/num2;
+        }
+        return 0;
     }
 }
